@@ -1,0 +1,9 @@
+{
+  "mode": "iterations",
+  "workingDirectory": ".",
+  "host": "env",
+  "executable": { "kind": "name", "value": "ls" },
+  "arguments": ["-1", "."],
+  "iterations": 100
+}
+

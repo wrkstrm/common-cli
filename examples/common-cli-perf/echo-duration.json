@@ -1,0 +1,9 @@
+{
+  "mode": "duration",
+  "workingDirectory": ".",
+  "host": "direct",
+  "executable": { "kind": "path", "value": "/bin/echo" },
+  "arguments": ["hi"],
+  "seconds": 0.1
+}
+
