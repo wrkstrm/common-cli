@@ -58,6 +58,15 @@ CommonCLI mirrors platform support from CommonProcess/CommonShell.
 - CommonProcess (>= 0.2.0)
 - Apple Swift Argument Parser (transitive)
 
+## Docs
+
+- API surface documented via inline comments; DocC workflows mirror CommonProcess/CommonShell
+
+## CI
+
+- Linux CI: swift‑ci (build + test)
+- Format lint and DocC Pages workflows included
+
 ## Contributing
 
 See CONTRIBUTING.md. Use CommonShell/CommonProcess for all subprocess execution and
@@ -70,3 +79,7 @@ Report vulnerabilities through GitHub Security Advisories (see SECURITY.md).
 ## License
 
 MIT — see LICENSE.
+
+## Changelog
+
+See CHANGELOG.md.
