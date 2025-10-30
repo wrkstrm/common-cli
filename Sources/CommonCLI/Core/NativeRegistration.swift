@@ -9,4 +9,4 @@ private enum _CommonCLINativeRegistration {
 }
 
 // Trigger registration on module load.
-private let _swiftcli_native_bootstrap: Void = { _CommonCLINativeRegistration.bootstrap() }()
+private let swiftcliNativeBootstrap: Void = { _CommonCLINativeRegistration.bootstrap() }()

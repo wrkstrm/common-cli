@@ -256,9 +256,9 @@ extension CommonShell { public var git: Git { .init(shell: self) } }
 
 // MARK: - Typed CommandSpec builders
 
-public extension Git {
+extension Git {
   /// Build a CommandSpec for `git clone`.
-  static func clone(
+  public static func clone(
     noLocal: Bool = true,
     noHardlinks: Bool = true,
     source: String,
@@ -277,7 +277,7 @@ public extension Git {
   }
 
   /// Build a CommandSpec for `git filter-repo`.
-  static func filterRepo(
+  public static func filterRepo(
     path: String,
     pathRename: String? = nil,
     force: Bool = true,
@@ -295,7 +295,7 @@ public extension Git {
 
   /// Build a CommandSpec for `git filter-repo --subdirectory-filter <subdir>`.
   /// This rewrites history so that the provided subdirectory becomes the repository root.
-  static func filterRepoSubdirectory(
+  public static func filterRepoSubdirectory(
     subdirectory: String,
     force: Bool = true,
     workingDirectory: String
@@ -310,41 +310,78 @@ public extension Git {
   }
 
   /// `git remote remove <name>`
-  static func remoteRemove(name: String, workingDirectory: String) -> CommandSpec {
-    CommandSpec(executable: Self.executable, args: ["remote", "remove", name], workingDirectory: workingDirectory)
+  public static func remoteRemove(name: String, workingDirectory: String) -> CommandSpec {
+    CommandSpec(
+      executable: Self.executable,
+      args: ["remote", "remove", name],
+      workingDirectory: workingDirectory
+    )
   }
 
   /// `git remote add <name> <url>`
-  static func remoteAdd(name: String, url: String, workingDirectory: String) -> CommandSpec {
-    CommandSpec(executable: Self.executable, args: ["remote", "add", name, url], workingDirectory: workingDirectory)
+  public static func remoteAdd(name: String, url: String, workingDirectory: String) -> CommandSpec {
+    CommandSpec(
+      executable: Self.executable,
+      args: ["remote", "add", name, url],
+      workingDirectory: workingDirectory
+    )
   }
 
   /// `git push [-u] <remote> --all`
-  static func pushAll(setUpstream: Bool = true, remote: String, workingDirectory: String) -> CommandSpec {
+  public static func pushAll(
+    setUpstream: Bool = true,
+    remote: String,
+    workingDirectory: String
+  ) -> CommandSpec {
     var args = ["push"]
     if setUpstream { args.append("-u") }
     args += [remote, "--all"]
-    return CommandSpec(executable: Self.executable, args: args, workingDirectory: workingDirectory)
+    return CommandSpec(
+      executable: Self.executable,
+      args: args,
+      workingDirectory: workingDirectory
+    )
   }
 
   /// `git push [-u] <remote> --tags`
-  static func pushTags(setUpstream: Bool = true, remote: String, workingDirectory: String) -> CommandSpec {
+  public static func pushTags(
+    setUpstream: Bool = true,
+    remote: String,
+    workingDirectory: String
+  ) -> CommandSpec {
     var args = ["push"]
     if setUpstream { args.append("-u") }
     args += [remote, "--tags"]
-    return CommandSpec(executable: Self.executable, args: args, workingDirectory: workingDirectory)
+    return CommandSpec(
+      executable: Self.executable,
+      args: args,
+      workingDirectory: workingDirectory
+    )
   }
 
   /// `git rm [-r] <path>`
-  static func rm(recursive: Bool = true, path: String, workingDirectory: String) -> CommandSpec {
+  public static func rm(
+    recursive: Bool = true,
+    path: String,
+    workingDirectory: String
+  ) -> CommandSpec {
     var args = ["rm"]
     if recursive { args.append("-r") }
     args.append(path)
-    return CommandSpec(executable: Self.executable, args: args, workingDirectory: workingDirectory)
+    return CommandSpec(
+      executable: Self.executable,
+      args: args,
+      workingDirectory: workingDirectory
+    )
   }
 
   /// `git submodule add -b <branch> <url> <path>`
-  static func submoduleAdd(branch: String, url: String, path: String, workingDirectory: String)
+  public static func submoduleAdd(
+    branch: String,
+    url: String,
+    path: String,
+    workingDirectory: String
+  )
     -> CommandSpec
   {
     CommandSpec(

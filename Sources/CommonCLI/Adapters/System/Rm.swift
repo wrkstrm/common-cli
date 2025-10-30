@@ -11,9 +11,10 @@ public struct Rm: CLI {
   public struct Options: OptionSet, Sendable {
     public let rawValue: Int
     public init(rawValue: Int) { self.rawValue = rawValue }
-    public static let recursive = Options(rawValue: 1 << 0)  // -r
-    public static let force = Options(rawValue: 1 << 1)  // -f
-    public static let directoryOnly = Options(rawValue: 1 << 2)  // -d (allow removing empty directories)
+    public static let recursive = Options(rawValue: 1 << 0) // -r
+    public static let force = Options(rawValue: 1 << 1) // -f
+    // -d remove empty directories
+    public static let directoryOnly = Options(rawValue: 1 << 2)
   }
 
   public func remove(path: String, options: Options = []) async throws -> String {
@@ -30,13 +31,21 @@ extension CommonShell { public var rm: Rm { .init(shell: self) } }
 
 // MARK: - Typed CommandSpec builder
 
-public extension Rm {
-  static func rm(path: String, options: Options = [], workingDirectory: String) -> CommandSpec {
+extension Rm {
+  public static func rm(
+    path: String,
+    options: Options = [],
+    workingDirectory: String
+  ) -> CommandSpec {
     var args: [String] = []
     if options.contains(.recursive) { args.append("-r") }
     if options.contains(.force) { args.append("-f") }
     if options.contains(.directoryOnly) { args.append("-d") }
     args.append(path)
-    return CommandSpec(executable: Self.executable, args: args, workingDirectory: workingDirectory)
+    return CommandSpec(
+      executable: Self.executable,
+      args: args,
+      workingDirectory: workingDirectory
+    )
   }
 }
