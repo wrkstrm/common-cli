@@ -58,6 +58,8 @@ public struct NpmExecOptions: Sendable, Hashable {
     for packageName in packageNames {
       output.append(contentsOf: ["--package", packageName])
     }
+    // Separator ensures subsequent flags go to the package binary, not npm itself.
+    output.append("--")
     output.append(command)
     output.append(contentsOf: arguments)
     return output
