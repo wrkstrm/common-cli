@@ -40,7 +40,7 @@ await {
 await {
   var shell = CommonShell(executable: .path("/bin/echo"))
   let echoed = try await shell.run(["hello"]).trimmingCharacters(in: .whitespacesAndNewlines)
-  print(echoed) // "hello"
+  print(echoed)  // "hello"
 }()
 ```
 

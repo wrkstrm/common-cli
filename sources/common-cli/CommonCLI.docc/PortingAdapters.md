@@ -20,12 +20,12 @@ public struct Git: CLI {
 2. Forward commands through the configured shell
 
 ```swift
-public extension Git {
-  func run(_ args: [String]) async throws -> String {
+extension Git {
+  public func run(_ args: [String]) async throws -> String {
     try await shell.runConfigured(executable: Self.executable, arguments: args)
   }
 
-  func status(porcelain: Bool = true) async throws -> String {
+  public func status(porcelain: Bool = true) async throws -> String {
     var args = ["status"]
     if porcelain { args.append("--porcelain") }
     return try await run(args)
