@@ -74,7 +74,7 @@ extension Package {
     static var remote: Inject = .init(
       dependencies: [
         .package(url: "https://github.com/wrkstrm/common-shell.git", from: "0.1.0"),
-        .package(url: "https://github.com/wrkstrm/common-process.git", from: "0.2.0"),
+        .package(url: "https://github.com/wrkstrm/common-process.git", from: "0.3.0"),
       ]
     )
   }
