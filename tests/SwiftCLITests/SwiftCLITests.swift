@@ -40,3 +40,15 @@ func swiftBuildProductTrimsWhitespace() {
   let product = SwiftBuildProduct(name: "  example  ")
   #expect(product.argumentValue == "example")
 }
+
+@Test("Swiftc typed options emit expected arguments")
+func swiftcTypedArguments() {
+  let options = SwiftcCompileOptions(
+    source: SwiftcSource(path: "main.swift"),
+    output: SwiftcOutput(path: ".build/out"),
+    extra: ["-emit-executable"]
+  )
+  #expect(
+    options.makeArguments() == ["main.swift", "-o", ".build/out", "-emit-executable"]
+  )
+}
