@@ -28,20 +28,18 @@ func rmDirectoryOnlyParity() async throws {
   #expect(!fm.fileExists(atPath: emptyNat.path))
 
   // Non-empty directory with -d should not remove (error tolerated)
-  do { _ = try await rmSub.remove(path: nonEmpty.path, options: [.directoryOnly]) } catch
-  { // expected
+  do { _ = try await rmSub.remove(path: nonEmpty.path, options: [.directoryOnly]) } catch {  // expected
   }
-  do { _ = try await rmNat.remove(path: nonEmpty.path, options: [.directoryOnly]) } catch
-  { // expected
+  do { _ = try await rmNat.remove(path: nonEmpty.path, options: [.directoryOnly]) } catch {  // expected
   }
   #expect(fm.fileExists(atPath: nonEmpty.path))
 
   // Removing directory without -d or -r should fail
   let another = base.appendingPathComponent("another")
   try fm.createDirectory(at: another, withIntermediateDirectories: true)
-  do { _ = try await rmSub.remove(path: another.path, options: []) } catch { // expected
+  do { _ = try await rmSub.remove(path: another.path, options: []) } catch {  // expected
   }
-  do { _ = try await rmNat.remove(path: another.path, options: []) } catch { // expected
+  do { _ = try await rmNat.remove(path: another.path, options: []) } catch {  // expected
   }
   #expect(fm.fileExists(atPath: another.path))
 }

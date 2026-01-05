@@ -11,8 +11,8 @@ public struct Rm: CLI {
   public struct Options: OptionSet, Sendable {
     public let rawValue: Int
     public init(rawValue: Int) { self.rawValue = rawValue }
-    public static let recursive = Options(rawValue: 1 << 0) // -r
-    public static let force = Options(rawValue: 1 << 1) // -f
+    public static let recursive = Options(rawValue: 1 << 0)  // -r
+    public static let force = Options(rawValue: 1 << 1)  // -f
     // -d remove empty directories
     public static let directoryOnly = Options(rawValue: 1 << 2)
   }
