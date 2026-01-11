@@ -1,4 +1,4 @@
-# Porting Adapters To CommonShell
+# Porting Adapters to CommonShell
 
 CommonCLI adapters now bind tools by configuring a `CommonShell` with the tool’s
 `Executable` and preferred host, then invoking `runConfigured` or
@@ -33,7 +33,7 @@ extension Git {
 }
 ```
 
-### Wrapper/host Selection
+### Wrapper/Host Selection
 
 `runConfigured` automatically picks the preferred host (`.env` for named
 tools, `.direct` for absolute paths) via `CommonShell.preferredHost(for:)`. If a

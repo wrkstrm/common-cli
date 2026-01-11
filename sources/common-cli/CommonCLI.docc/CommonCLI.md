@@ -91,7 +91,7 @@ public struct SwiftTool: CLI, Versioned {
 - Level 3 — enforcing type safety: define typed options/enums for CLI interactions.
 - Level 4 — native alternatives that replicate CLI behavior: implement in-process functionality without spawning subprocesses.
 
-#### Type Safety And Autonomy
+#### Type Safety and Autonomy
 
 - Strongly typed options reduce invalid command surfaces, improving safety for
   automated agents.
