@@ -1,4 +1,4 @@
-# common-cli-perf
+# Common-cli-perf
 
 A tiny JSON‑driven perf harness to run simple command specs repeatedly by duration or
 iterations. It uses `CommonShellPerf` (WrkstrmPerformance under the hood) so core packages can
@@ -10,7 +10,7 @@ remain lean.
 swift build -c debug --package-path code/mono/apple/spm/universal/common/domain/system/common-cli
 ```
 
-## Run (examples)
+## Run (Examples)
 
 ```
 # Duration: echo /bin/echo for 0.1s
@@ -32,7 +32,7 @@ printf '%s' '{
 }' | swift run --package-path code/mono/apple/spm/universal/common/domain/system/common-cli common-cli-perf
 ```
 
-## JSON schema (minimal)
+## JSON Schema (Minimal)
 
 - `mode`: `"duration" | "iterations"`
 - `workingDirectory`: optional string
@@ -55,6 +55,6 @@ printf '%s' '{
 { "iterations": 123, "totalMS": 45.67, "averageMS": 0.371, "ok": true, "thresholdMS": 0.426 }
 ```
 
-## Examples directory
+## Examples Directory
 
 See `examples/common-cli-perf/echo-duration.json` and `examples/common-cli-perf/ls-iterations.json` in this package.

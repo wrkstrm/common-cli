@@ -1,4 +1,4 @@
-# CommonCLI — typed CLI adapters on CommonShell
+# CommonCLI — Typed CLI Adapters on CommonShell
 
 [![Swift CI (Linux)](https://github.com/wrkstrm/common-cli/actions/workflows/swift-ci.yml/badge.svg)](https://github.com/wrkstrm/common-cli/actions/workflows/swift-ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
