@@ -30,7 +30,7 @@ Add the package and depend on the `CommonCLI` product.
 ]
 ```
 
-### Configure logging (optional)
+### Configure Logging (Optional)
 
 ```swift
 import CommonCLI
@@ -38,7 +38,7 @@ import CommonCLI
 ShellLogging.configureLogging(from: ProcessInfo.processInfo.environment["LOG_LEVEL"]) // or .configureLogging(level:)
 ```
 
-### Usage pattern
+### Usage Pattern
 
 Every adapter is a tiny wrapper around `CommonShell`. Start from a base shell
 and prefer adapter methods for clarity:
@@ -64,7 +64,7 @@ _ = try await base.mkdir.createDirectory(at: "Build/Artifacts")
 
 All APIs are async and return `String` stdout (they throw on non‑zero exit).
 
-### CLI protocol (identity)
+### CLI Protocol (Identity)
 
 CommonCLI adapters declare a static executable that identifies the tool and any default prefixes:
 
@@ -83,7 +83,7 @@ public struct SwiftTool: CLI, Versioned {
 - Host mapping defaults: `.path` → direct, `.name` → env, `.none` → shell.
 - You can override per call with `bind(route:)` or by passing an explicit host to `CommonShell.run`.
 
-### Abstraction levels
+### Abstraction Levels
 
 - Level 0 — creating a process: use CommonProcess runners and CommandSpec directly.
 - Level 1 — creating a shell: use CommonShell for convenience and consistent logging.
@@ -91,7 +91,7 @@ public struct SwiftTool: CLI, Versioned {
 - Level 3 — enforcing type safety: define typed options/enums for CLI interactions.
 - Level 4 — native alternatives that replicate CLI behavior: implement in-process functionality without spawning subprocesses.
 
-#### Type safety and autonomy
+#### Type Safety And Autonomy
 
 - Strongly typed options reduce invalid command surfaces, improving safety for
   automated agents.
@@ -102,7 +102,7 @@ public struct SwiftTool: CLI, Versioned {
 
 ## Topics
 
-### Git helpers
+### Git Helpers
 
 - ``Git``
 
@@ -144,7 +144,7 @@ print(try await shell.git.stashList())
 _ = try await shell.git.stashApply() // latest
 ```
 
-### SwiftPM helpers
+### SwiftPM Helpers
 
 - ``SwiftTool``
 
@@ -165,7 +165,7 @@ print(try await swift.runExecutable(product: "tool", args: ["--help"]))
 _ = try await shell.swiftc.compile(source: "main.swift", output: ".build/out")
 ```
 
-### Core utils
+### Core Utils
 
 - ``Ls``
 - ``Mkdir``
@@ -206,7 +206,7 @@ _ = try await gh.labelCreate(name: "tests", color: "5319e7", description: "Test-
 _ = try await gh.issueAddLabels(number: "80", labels: ["tests"]) // add to issue #80
 ```
 
-### macOS‑only helpers
+### macOS‑only Helpers
 
 - ``XcodeBuild``
 - ``Sdef``
@@ -227,7 +227,7 @@ _ = try await shell.pkgbuild.build(
 )
 ```
 
-## Error handling
+## Error Handling
 
 On non‑zero exit, adapters throw. Surround calls with `do/catch` or use Swift
 Testing/XCTest assertions for CI.

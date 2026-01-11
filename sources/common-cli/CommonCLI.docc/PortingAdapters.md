@@ -1,4 +1,4 @@
-# Porting Adapters to CommonShell
+# Porting Adapters To CommonShell
 
 CommonCLI adapters now bind tools by configuring a `CommonShell` with the tool’s
 `Executable` and preferred host, then invoking `runConfigured` or
@@ -33,7 +33,7 @@ extension Git {
 }
 ```
 
-### Wrapper/host selection
+### Wrapper/host Selection
 
 `runConfigured` automatically picks the preferred host (`.env` for named
 tools, `.direct` for absolute paths) via `CommonShell.preferredHost(for:)`. If a
@@ -51,7 +51,7 @@ print(output)
 This replaces the older `ExecutableSpec`/`CommandRoute` approach; adapters now
 own their executable identity directly and call the unified helpers.
 
-## Abstraction levels
+## Abstraction Levels
 
 - Level 0 — creating a process: use CommonProcess runners and CommandSpec directly.
 - Level 1 — creating a shell: use CommonShell for convenience and consistent logging.
