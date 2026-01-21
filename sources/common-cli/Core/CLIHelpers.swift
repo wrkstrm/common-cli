@@ -1,10 +1,10 @@
 import Foundation
 import Logging
-import WrkstrmLog
+import CommonLog
 
 /// Convenience helpers to configure logging for CLIs using CommonShell.
 public enum ShellLogging: Sendable {
-  /// Set the global exposure level used by WrkstrmLog for this process.
+  /// Set the global exposure level used by CommonLog for this process.
   /// Use this in your CLI entrypoint based on flags like --log-level.
   public static func configureLogging(level: Logger.Level) {
     Log.globalExposureLevel = level

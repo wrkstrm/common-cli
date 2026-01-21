@@ -197,7 +197,7 @@ import CommonShell
 let gh = Gh(shell: CommonShell(executable: .name("gh")))
 let longBody = "…long text…\n\nRefs: …"
 // Create an issue without labels (labels can be added later if they don't exist)
-_ = try await gh.issueCreate(title: "WrkstrmLog CI: pin tests to 1 worker (temporary)",
+_ = try await gh.issueCreate(title: "CommonLog CI: pin tests to 1 worker (temporary)",
                              body: longBody,
                              labels: [])
 
