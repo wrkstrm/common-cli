@@ -12,7 +12,7 @@ import PackageDescription
 let package = Package(
   name: "CommonCLI",
   platforms: [
-    .macOS(.v14), .iOS(.v17), .macCatalyst(.v17),
+    .macOS(.v15), .iOS(.v17), .macCatalyst(.v17),
   ],
   products: [
     .library(name: "CommonCLI", targets: ["CommonCLI"]),
